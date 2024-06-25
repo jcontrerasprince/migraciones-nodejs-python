@@ -11,7 +11,6 @@ yarn.lock
 # Logs and databases #
 ######################
 *.log
-*.sql
 *.sqlite
 
 # Dependency directories #
@@ -31,6 +30,8 @@ jspm_packages/
 ########
 .DS_Store
 Thumbs.db
+
+.env
 
 # Python specific #
 ###################
@@ -105,3 +106,5 @@ instance/
 
 # Sphinx documentation
 docs/_build/
+
+database
