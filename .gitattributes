@@ -1,0 +1,28 @@
+# Set default behavior to automatically normalize line endings.
+* text=auto
+
+# Specify line endings explicitly for files known to require CRLF.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Specify line endings explicitly for files known to require LF.
+*.sh text eol=lf
+*.py text eol=lf
+*.js text eol=lf
+
+# Define binary files.
+# Generally, you want to avoid these files getting messed up with text conversion.
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+
+# Diff settings for specific file types.
+# These settings are useful for binary files that can be textually compared.
+*.docx diff=astextplain
+*.xlsx diff=astextplain
+*.pptx diff=astextplain
+
+# Normalizing Unicode file names.
+* -text working-tree-encoding=UTF-8
