@@ -4,7 +4,12 @@
   "description": "Migration example in Node.js with Sequelize",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "nodemon index.js",
+    "start": "node index.js",
+    "db:primeras-tablas": "sequelize-cli db:migrate --to 1719344886804-primeras-tablas.js",
+    "db:upgrade": "sequelize-cli db:migrate",
+    "db:downgrade": "sequelize-cli db:migrate:undo"
   },
   "author": "Jorge Contreras Prince",
   "license": "ISC",
@@ -16,6 +21,7 @@
     "sequelize": "^6.37.3"
   },
   "devDependencies": {
+    "nodemon": "^3.1.4",
     "sequelize-cli": "^6.6.2"
   }
 }

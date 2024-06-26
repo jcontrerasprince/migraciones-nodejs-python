@@ -5,16 +5,28 @@ const db = require("./models");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.use(express.json());
+
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
 app.get("/envios", async (req, res) => {
   try {
-    const envios = db.Envio.findAll();
+    const envios = await db.Envio.findAll();
     res.json(envios);
   } catch (error) {
     res.status(500).json({ error: error.message });
+  }
+});
+
+app.post("/envios", async (req, res) => {
+  try {
+    const body = req.body;
+    const envio = await db.Envio.create(body);
+    res.json(envio);
+  } catch (error) {
+    res.status(500).json(error);
   }
 });
 
@@ -23,9 +35,6 @@ const startServer = async () => {
     // Connect to the database
     await db.sequelize.authenticate();
     console.log("Connection has been established successfully.");
-
-    // Sync all models
-    await db.sequelize.sync();
 
     // Start the server
     app.listen(PORT, () => {
