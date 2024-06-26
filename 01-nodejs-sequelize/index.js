@@ -16,7 +16,7 @@ app.get("/envios", async (req, res) => {
     const envios = await db.Envio.findAll();
     res.json(envios);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(500).json(error);
   }
 });
 
